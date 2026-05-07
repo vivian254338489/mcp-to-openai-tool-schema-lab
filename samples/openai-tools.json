@@ -1,0 +1,55 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "lookup_model_price",
+      "description": "Return fixture pricing metadata for a model name in a schema validation lab.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model identifier to look up in local fixtures."
+          },
+          "unit": {
+            "type": "string",
+            "enum": ["input_tokens", "output_tokens"],
+            "description": "Fixture price unit."
+          }
+        },
+        "required": ["model"]
+      }
+    },
+    "x-mcp": {
+      "source": "mcp-to-openai-tool-schema-lab",
+      "hasOutputSchema": true
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "validate_channel_settings",
+      "description": "Check local fixture channel settings before testing an OpenAI-style tool schema.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Example channel name."
+          },
+          "strict": {
+            "type": "boolean",
+            "description": "Whether the validator should report warnings as failures."
+          }
+        },
+        "required": ["channel"]
+      }
+    },
+    "x-mcp": {
+      "source": "mcp-to-openai-tool-schema-lab",
+      "hasOutputSchema": true
+    }
+  }
+]

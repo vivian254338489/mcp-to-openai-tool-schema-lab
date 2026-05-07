@@ -1,0 +1,26 @@
+name: Validator gap
+description: Report a small validator rule that would improve this schema playground.
+title: "[validator]: "
+labels: ["validator", "good first issue"]
+body:
+  - type: textarea
+    id: gap
+    attributes:
+      label: Gap
+      description: Which schema issue should the offline validator catch?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected output
+      description: What JSON or markdown output would help?
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: This report does not include API keys, private data, or third-party credentials.
+          required: true

@@ -1,0 +1,63 @@
+{
+  "tools": [
+    {
+      "name": "lookup_model_price",
+      "description": "Return fixture pricing metadata for a model name in a schema validation lab.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model identifier to look up in local fixtures."
+          },
+          "unit": {
+            "type": "string",
+            "enum": ["input_tokens", "output_tokens"],
+            "description": "Fixture price unit."
+          }
+        },
+        "required": ["model"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "model": { "type": "string" },
+          "price": { "type": "number" },
+          "unit": { "type": "string" }
+        },
+        "required": ["model", "price", "unit"]
+      }
+    },
+    {
+      "name": "validate_channel_settings",
+      "description": "Check local fixture channel settings before testing an OpenAI-style tool schema.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Example channel name."
+          },
+          "strict": {
+            "type": "boolean",
+            "description": "Whether the validator should report warnings as failures."
+          }
+        },
+        "required": ["channel"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "ok": { "type": "boolean" },
+          "messages": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["ok"]
+      }
+    }
+  ]
+}

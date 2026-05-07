@@ -1,0 +1,27 @@
+name: Schema fixture request
+description: Suggest a small MCP or OpenAI-style tool schema fixture for the lab.
+title: "[fixture]: "
+labels: ["fixture", "schema"]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What schema comparison or validation edge should this fixture cover?
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample schema
+      description: Paste a minimal sanitized schema. Do not include secrets or proprietary payloads.
+      render: json
+    validations:
+      required: false
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This is about schema fixtures or validation, not production agent execution.
+          required: true

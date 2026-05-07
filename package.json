@@ -1,0 +1,29 @@
+{
+  "name": "mcp-to-openai-tool-schema-lab",
+  "version": "0.1.0",
+  "description": "Convert and validate MCP tool schemas for OpenAI-style function calling experiments.",
+  "homepage": "https://www.tken.shop/",
+  "type": "module",
+  "bin": {
+    "mcp-tool-schema-lab": "./bin/mcp-tool-schema-lab.js"
+  },
+  "scripts": {
+    "check": "node scripts/check.js",
+    "convert": "node bin/mcp-tool-schema-lab.js convert samples/mcp-tools.json --format markdown",
+    "validate": "node bin/mcp-tool-schema-lab.js validate samples/mcp-tools.json --format markdown"
+  },
+  "keywords": [
+    "mcp",
+    "openai",
+    "tools",
+    "function-calling",
+    "schema",
+    "validation",
+    "fixtures"
+  ],
+  "author": "TKEN schema lab contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
